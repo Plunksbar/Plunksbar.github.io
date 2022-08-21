@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendar</title>
+        <link rel="stylesheet" href="./css/calendar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src = "./js/libs/jqueryLibrary.js"></script>
+        <script src = "./js/libs/deparam.js"></script>
+        <script src="../socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">
+                <div class="user">
+                    <h1>Tu</h1>
+                    <div class="user-info table">
+                        <table class="user-info">
+                        <tbody>
+                            <tr>
+                                <td class="label">Nombre de usuario</td>
+                                <td id="username">Tu nombre 32</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Color seleccionado</td>
+                                <td><div class="selected-color"></div></td>
+                            </tr>
+                        </tbody>
+                        </table>                        
+                    </div>
+                </div>
+                <div class="projects-list">
+                    <h1>Eventos</h1>
+                    <div class="project"></div>
+                    <div class="project"></div>
+                    <div class="project"></div>
+                    <div class="project"></div>
+                </div>
+            </div>
+            <div class="central">
+                <div class="calendar">
+                    <div class="month">
+                        <i class="fas fa-angle-left prev"></i>
+                        <div class="date">
+                            <h1>May</h1>
+                            <p>Fri May 29, 2020</p>
+                        </div>
+                        <i class="fas fa-angle-right next"></i>
+                    </div>
+                    <div class="weekdays">
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mie</div>
+                        <div>Jue</div>
+                        <div>Vie</div>
+                        <div>Sab</div>
+                        <div>Dom</div>
+                    </div>
+                    <div class="days">
+                    </div>
+                    <div class="buttons">
+                        <button id="reset" onclick="resetSelection()">Borrar selección</button>
+                        <button id="confirm" onclick="submitSelection()">Confirmar selección</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="right">
+                <div class="selection">
+                    <h1>Tu selección</h1>
+                    <div class="selected-days">
+                        <div class="tutorial">
+                            Haz click en el calendario para seleccionar los dias deseados!
+                        </div>
+                    </div>
+                </div>
+                <div class="project-data">
+                    <h1>Datos</h1>
+                    <div class="data table">
+                        <table class="data">
+                            <tbody>
+                                <tr style="height: 146px; max-height: 146px;">
+                                    <td class="label" style="width: 40%;">Tus seleccionados</td>
+                                    <td><div id="submitted"></div></td>
+                                </tr>
+                                <tr style="border-bottom: none; height: 146px; max-height: 146px;">
+                                    <td class="label">Mas seleccionados</td>
+                                    <td id="answers"></td>
+                                </tr>
+                                <tr style="border-top: none;">
+                                    <td class="label">Rango</td>
+                                    <td><div class="slider-container"><div style="padding-top: 0.5px;"><input type="range" min="1" max="100" value="80" class="slider" id="myRange"></div><div id="demo" contenteditable="true"></div></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Número de respuestas</td>
+                                    <td id="n-answers">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Mapa de calor</td>
+                                    <td>
+                                        <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="switcher round"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="./js/calendar.js"></script>
+    </body>
+</html>
